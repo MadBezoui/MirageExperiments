@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\TABLE{Main comparison, majority-of-five aggregation.\label{tab:main}}
+{\small\begin{tabular}{lrrrrrrrrr}
+\toprule
+solver & \#inst & SAT & UNSAT & unk. & unsup. & error & wit.\% & dec.\% & med.\ solved-case time (s) \\
+\midrule
+Choco & 736 & 406 & 253 & 67 & 0 & 10 & 55.16 & 89.54 & 0.55 \\
+OR-Tools CP-SAT & 736 & 318 & 179 & 230 & 0 & 9 & 43.21 & 67.53 & 16.27 \\
+MIRAGE-R$\to$CP-SAT (archived impl.) & 736 & 303 & 173 & 251 & 0 & 9 & 41.17 & 64.67 & 65.09 \\
+MIRAGE-R+regions (archived impl.) & 736 & 64 & 0 & 663 & 0 & 9 & 8.70 & 8.70 & 4.31 \\
+MIRAGE-R (archived impl.) & 736 & 62 & 0 & 665 & 0 & 9 & 8.42 & 8.42 & 3.91 \\
+RUN-CSP & 736 & 14 & 0 & 34 & 675 & 13 & 1.90 & 1.90 & 32.84 \\
+\bottomrule
+\end{tabular}}
+{\emph{wit.\%} is $\text{SAT}/736$ and \emph{dec.\%} is $(\text{SAT}+\text{UNSAT})/736$; they coincide for the incomplete methods and must not be mixed. \emph{unsup.} and \emph{error} count entries on which every seed returned that status, and \emph{unk.} is the residual. Median time is over solved entries at unequal thread allocations (CP-SAT four, others one) under concurrent shards, so it is descriptive only.}
+\end{table}
