@@ -173,4 +173,7 @@ The archives the paper does use are `results/raw/revision_sweep/`,
   recorded. No claim in the paper depends on them; they are deposited here for
   completeness.
 
+## Cite
 
+Cite the paper and this archive by their respective DOIs, to be assigned at
+acceptance.
