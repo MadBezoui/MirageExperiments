@@ -26,8 +26,25 @@ import re
 import subprocess
 import sys
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
-SRC = ROOT / "paper" / "ijoc"
+# ----------------------------------------------------------------------
+# Where the manuscript lives. In this working tree it is a sibling of Code/;
+# in a standalone clone of the artifact it is expected in-tree under paper/.
+# Resolving it here keeps a clean clone from silently writing to nowhere.
+# ----------------------------------------------------------------------
+def manuscript_dir() -> pathlib.Path:
+    here = pathlib.Path(__file__).resolve()
+    for base in (here.parents[1], here.parents[2]):
+        cand = base / "paper" / "ijoc"
+        if (cand / "paper.tex").exists():
+            return cand
+    raise SystemExit(
+        "paper/ijoc/paper.tex not found, neither in this repository nor "
+        "beside it. The manuscript directory is not part of this artifact; "
+        "see README.md."
+    )
+
+
+SRC = manuscript_dir()
 
 MAX_COUNTED_PAGES = 25   # body + references + tables + graphs
 

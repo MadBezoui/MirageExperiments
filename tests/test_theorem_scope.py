@@ -14,12 +14,24 @@ import re
 import pathlib
 
 import numpy as np
+import pytest
 
 from experiments.theory_multifactor import (GRAPHS, complete_graph,
                                             cycle_graph, is_bipartite,
                                             laplacian)
 
-PAPER = pathlib.Path(__file__).resolve().parents[2] / "paper" / "ijoc" / "paper.tex"
+def _paper() -> pathlib.Path:
+    """The manuscript, whether it sits in this tree or beside it."""
+    here = pathlib.Path(__file__).resolve()
+    for base in (here.parents[1], here.parents[2]):
+        cand = base / "paper" / "ijoc" / "paper.tex"
+        if cand.exists():
+            return cand
+    return here  # absent: the manuscript tests skip
+
+
+PAPER = _paper()
+HAVE_PAPER = PAPER.name == "paper.tex"
 
 
 def _disjoint_union(a, b):
@@ -68,6 +80,7 @@ def test_disconnected_counterexample_separates_the_two_conditions():
     assert _mu_max(*cycle_graph(3)) < 2.0
 
 
+@pytest.mark.skipif(not HAVE_PAPER, reason="manuscript not in this repository")
 def test_manuscript_states_the_connectedness_hypothesis():
     src = PAPER.read_text()
     assert "finite, connected, undirected graph" in src
@@ -76,12 +89,14 @@ def test_manuscript_states_the_connectedness_hypothesis():
     assert "equality iff $G$ has a bipartite component" not in src
 
 
+@pytest.mark.skipif(not HAVE_PAPER, reason="manuscript not in this repository")
 def test_schedule_ablation_key_arithmetic():
     """736 entries x 12 cells x 3 seeds x 2 configurations = 52,992 keys."""
     assert 736 * 12 * 3 * 2 == 52_992
     assert "736\\times12\\times3\\times2=52{,}992" in PAPER.read_text()
 
 
+@pytest.mark.skipif(not HAVE_PAPER, reason="manuscript not in this repository")
 def test_ortools_release_is_stated_once_and_consistently():
     """The evaluated release must not appear with two different values."""
     src = PAPER.read_text()
@@ -89,6 +104,7 @@ def test_ortools_release_is_stated_once_and_consistently():
     assert len(versions) <= 1, f"conflicting OR-Tools versions in the paper: {versions}"
 
 
+@pytest.mark.skipif(not HAVE_PAPER, reason="manuscript not in this repository")
 def test_paired_interval_is_newcombe_not_wald():
     """The region comparison has two discordant pairs out of 736.
 
@@ -123,8 +139,15 @@ def test_nonbipartite_generator_actually_produces_odd_cycles():
     for seed in range(8):
         n, edges = random_nonbipartite(30, 3, np.random.default_rng(seed))
         assert not is_bipartite(n, edges), f"seed {seed} stayed 2-colourable"
+        # Non-bipartite is not enough: a bipartite component anywhere would
+        # still put mu_max at 2 and make gamma = 1/2 critical, not subcritical.
+        # Check the spectral quantity the interpretation actually rests on.
+        L, _, _ = laplacian(n, edges)
+        mu = float(np.max(np.linalg.eigvals(L).real))
+        assert mu < 2 - 1e-9, f"seed {seed} has mu_max = {mu}, not subcritical"
 
 
+@pytest.mark.skipif(not HAVE_PAPER, reason="manuscript not in this repository")
 def test_bipartite_critical_state_is_not_uniform():
     """At the exactly critical ratio the bipartition direction is neutral, so
     the terminal state keeps the component the initialization gave it. The
@@ -144,6 +167,7 @@ def test_bipartite_critical_state_is_not_uniform():
     assert "the two disequality families instead converge to the uniform" not in src
 
 
+@pytest.mark.skipif(not HAVE_PAPER, reason="manuscript not in this repository")
 def test_warm_start_grid_numbers_are_deduplicated_and_decision_rates():
     """The archived aggregation rated the grid on duplicated rows and under the
     wrong metric. These are the deduplicated decision rates the paper quotes."""

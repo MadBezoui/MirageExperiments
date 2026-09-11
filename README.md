@@ -49,6 +49,13 @@ pip install -r requirements.txt
 ./scripts/reproduce.sh verify
 ```
 
+> **The manuscript is not part of this repository.** `reproduce.sh` and
+> `build_submission.py` look for `paper/ijoc/paper.tex` in this tree and then
+> beside it, and stop with a message when neither exists. Without it the tests,
+> the theorem verification and the diagnostics all run; the byte-identical
+> table comparison and the PDF build do not, because there is nothing to
+> compare against.
+
 `verify` runs the tests, regenerates every table and figure, requires each
 regenerated table to be **byte-identical** to the one committed under
 `../paper/ijoc/tables/`, and then rebuilds the three PDFs. It exits non-zero on
@@ -68,8 +75,10 @@ Other modes: `tests`, `theory`, `diagnostics`, `audit`, `paper`, `all`.
   set `JAVA_HOME` yourself, or rebuild the jar with `make choco-build`.
 
 The pinned versions are the ones the reproduction was last verified against.
-They are **not** the versions of the archived sweep: that used
-`ortools 9.8.3296` and `choco-solver 4.10.13`, as the paper states.
+They are **not** the versions of the archived sweep, which we believe to have
+used `ortools 9.8.3296` and `choco-solver 4.10.13` but cannot establish: no run
+record carries a version field, and the archived `protocol.tex` names a
+different OR-Tools release. The paper says so too.
 
 ## Repository layout
 
@@ -154,10 +163,10 @@ plus references) exceed 25 or an appendix heading reappears.
 `weekend_theory/` hold the **pre-revision** runs. They carried a fabricated
 `regions_added` field and broken baseline adapters, they are never mixed into
 the paper's numbers (see the comment in `experiments/validation/aggregate.py`),
-and they are excluded from this archive so that nobody can analyse them by
-mistake. The three scripts that read them (`failure_analysis.py`,
-`hybrid_deepdive.py` and `plot_ablation_heatmap.py`) now refuse to run and say
-why. Nothing in the manuscript depends on any of them.
+and **nothing in the manuscript depends on any of them**. They are present in
+this repository for completeness rather than excluded from it; the three
+scripts that read them (`failure_analysis.py`, `hybrid_deepdive.py` and
+`plot_ablation_heatmap.py`) refuse to run and say why.
 
 The archives the paper does use are `results/raw/revision_sweep/`,
 `revision_ablation/`, `revision_hybrid_grid/` and `revision_theory/`.

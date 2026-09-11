@@ -236,6 +236,23 @@ def main() -> None:
     out["RevHybNoCellBeatsCtrl"] = (
         "yes" if max(t[0] for t in hinted.values()) <= stats[ctrl][0] else "no")
 
+    # Budget-matched controls. The grid ran hint_mode "none" at every positive
+    # warm-up, and the solver computes the marginals there and then discards
+    # them, so those cells pay the warm-up cost without receiving the hints.
+    # Comparing a hinted cell with the "none" cell at the same warm-up
+    # separates the cost of the warm-up from the effect of the hints.
+    warmups = sorted({w for w, _h in stats if w > 0})
+    base = {w: stats[(w, "none")][0] for w in warmups}
+    deltas = {(w, m): stats[(w, m)][0] - base[w]
+              for w in warmups for m in ("value", "order", "both")}
+    out["RevHybMatchedBase"] = str(sorted(set(base.values()))[0])
+    out["RevHybMatchedSame"] = "yes" if len(set(base.values())) == 1 else "no"
+    out["RevHybMatchedBest"] = f"{max(deltas.values()):+d}"
+    out["RevHybMatchedWorst"] = f"{min(deltas.values()):+d}"
+    out["RevHybMatchedWorstCell"] = "warm-up {}, {}".format(
+        *min(deltas, key=deltas.get))
+    out["RevHybCtrlSlowMed"] = f"{stats[(max(warmups), 'none')][3]:.1f}"
+
     abl = load(os.path.join(args.raw, "revision_ablation", "*.jsonl"))
     executed = {canon(r["instance"]) for r in abl if r["status"] != "SKIPPED_SIZE"}
     out["RevAblExecInstances"] = str(len(executed))

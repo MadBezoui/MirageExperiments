@@ -18,8 +18,19 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 export PYTHONPATH="${PYTHONPATH:-.}"
 
-TABLES=../paper/ijoc/tables
-FIGURES=../paper/ijoc/figures
+# The manuscript directory is a sibling of this repository in the authors'
+# working tree and in-tree in a standalone artifact clone. Resolve it, and say
+# so plainly when it is absent rather than writing tables into nowhere.
+if [ -f paper/ijoc/paper.tex ]; then PAPERDIR=paper/ijoc
+elif [ -f ../paper/ijoc/paper.tex ]; then PAPERDIR=../paper/ijoc
+else
+  echo "paper/ijoc/paper.tex not found, here or beside this repository."
+  echo "Table regeneration and the PDF build need it; see README.md."
+  exit 2
+fi
+export PAPERDIR
+TABLES=$PAPERDIR/tables
+FIGURES=$PAPERDIR/figures
 PY=${PYTHON:-python3}
 MODE="${1:-all}"
 
@@ -100,8 +111,8 @@ case "$MODE" in
     # artifact rather than typeset, and their committed copies carry editorial
     # trims that the generators do not reproduce.
     used=$("$PY" - <<'EOF'
-import re, pathlib
-src = pathlib.Path("../paper/ijoc/paper.tex").read_text()
+import os, re, pathlib
+src = (pathlib.Path(os.environ["PAPERDIR"]) / "paper.tex").read_text()
 print(" ".join(sorted({m + ".tex" for m in
       re.findall(r"\\input\{tables/([a-z_]+)", src)})))
 EOF
