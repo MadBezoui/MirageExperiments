@@ -46,6 +46,14 @@ number is asserted rather than transcribed.
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
+
+# Public repository only
+./scripts/reproduce.sh tests
+./scripts/reproduce.sh theory
+./scripts/reproduce.sh diagnostics
+./scripts/reproduce.sh audit
+
+# Complete submission bundle containing paper/ijoc/
 ./scripts/reproduce.sh verify
 ```
 
