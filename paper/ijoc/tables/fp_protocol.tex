@@ -1,0 +1,20 @@
+\begin{table}[t]
+\TABLE{Predeclared residual and cycle-detection protocol (reviewer item C.25). Every value was fixed before any outcome was inspected.\label{tab:fpprotocol}}
+{\begin{tabular}{ll}
+\toprule
+quantity & value \\
+\midrule
+residual norm & normalized $\ell_1$: $\|T^k_{\theta}(p)-p\|_1/\sum_i|D_i|$ \\
+residual threshold & 1e-09 \\
+continuation horizon & 200 frozen epochs \\
+cycle periods tested & $k \in \{2,3,4\}$ \\
+perturbation magnitude & 0.001 (logit coordinates) \\
+number of perturbations & 8 \\
+return threshold & 1e-06 \\
+floating-point precision & IEEE-754 binary64 \\
+annealed epoch budget & 300 \\
+decode frequency & every 5 epochs \\
+\bottomrule
+\end{tabular}}
+{A state is called an approximate fixed point only when $r_1\le$ the residual threshold. A state is flagged as a period-$k$ candidate only when $r_k$ is below the threshold while $r_d$ remains at least two orders of magnitude larger for every proper divisor $d$ of $k$, including $d=1$; this excludes fixed points, which have small $r_k$ for every $k$, from being reported as short cycles.}
+\end{table}

@@ -108,5 +108,76 @@ def test_paired_interval_is_newcombe_not_wald():
     assert d - 1.96 * se > lo and d + 1.96 * se < hi
 
     src = PAPER.read_text()
-    assert "Newcombe" in src
+    assert "newcombe1998paired" in src, "the interval must be cited"
+    assert "method 10" in src, "and the variant named, not just the author"
     assert "Wilson score interval for the paired difference" not in src
+
+
+def test_nonbipartite_generator_actually_produces_odd_cycles():
+    """Chords inside one part create an odd cycle only under conditions the
+    generator does not enforce by construction, so every seed is checked."""
+    import numpy as np
+    from experiments.fixedpoint_diagnostics import random_nonbipartite
+    from experiments.theory_multifactor import is_bipartite
+
+    for seed in range(8):
+        n, edges = random_nonbipartite(30, 3, np.random.default_rng(seed))
+        assert not is_bipartite(n, edges), f"seed {seed} stayed 2-colourable"
+
+
+def test_bipartite_critical_state_is_not_uniform():
+    """At the exactly critical ratio the bipartition direction is neutral, so
+    the terminal state keeps the component the initialization gave it. The
+    manuscript must not claim convergence to the uniform point there."""
+    import json
+    import statistics
+
+    root = pathlib.Path(__file__).resolve().parents[1]
+    recs = [json.loads(l) for l in
+            open(root / "results/raw/diagnostics/diagnostics.jsonl")]
+    crit = [r for r in recs if r["config"] == r"bipartite, frozen $\gamma=1/2$"]
+    gap = statistics.median(r["gap_mean"] for r in crit)
+    assert gap < 0.5, "a neutral direction cannot reach the uniform point"
+    assert 0.5 - gap > 1e-7, "the surviving component should be measurable"
+
+    src = PAPER.read_text()
+    assert "the two disequality families instead converge to the uniform" not in src
+
+
+def test_warm_start_grid_numbers_are_deduplicated_and_decision_rates():
+    """The archived aggregation rated the grid on duplicated rows and under the
+    wrong metric. These are the deduplicated decision rates the paper quotes."""
+    import collections
+    import statistics
+
+    from experiments.validation.audit_archive import load_jsonl, canon
+
+    root = pathlib.Path(__file__).resolve().parents[1]
+    rows = load_jsonl(str(root / "results/raw/revision_hybrid_grid/*.jsonl"))
+    keyed = {}
+    for r in rows:
+        keyed.setdefault((r.get("warmup_epochs"), r.get("hint_mode"),
+                          canon(r["instance"]), r["seed"]), r)
+    assert len(rows) == 7800 and len(keyed) == 6240, "the grid carries duplicates"
+
+    cells = collections.defaultdict(list)
+    for (w, h, _i, _s), r in keyed.items():
+        cells[(w, h)].append(r)
+    decided = {c: sum(1 for r in v
+                      if r["status"] in ("SAT_VERIFIED", "UNSAT", "UNSAT_PROVED"))
+               for c, v in cells.items()}
+    assert all(len(v) == 480 for v in cells.values())
+
+    control = decided[(0, "none")]
+    hinted = {c: n for c, n in decided.items() if c[1] != "none"}
+    assert max(hinted.values()) <= control, (
+        "no hinted cell may be reported as beating the control")
+    assert abs(100 * control / 480 - 95.2) < 0.05
+
+    # and the witness rate, which is the metric the paragraph used to name
+    wit = sum(1 for r in cells[(0, "none")] if r["status"] == "SAT_VERIFIED")
+    assert abs(100 * wit / 480 - 61.5) < 0.05, "witness and decision differ here"
+
+    src = PAPER.read_text()
+    assert "RevHybBestRate" not in src, "the duplicated-record rate must be gone"
+    assert "RevHybGridRuns" in src

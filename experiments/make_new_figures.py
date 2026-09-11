@@ -124,7 +124,7 @@ def fig_diagnostics(jsonl, figdir):
     ax[2].plot(x, pl, "o-", ms=4, lw=1, color="#7f7f7f",
                label="stall trigger fires")
     ax[2].plot(x, st, "s-", ms=4, lw=1, color="#2ca02c",
-               label="state becomes stationary")
+               label="displacement below threshold")
     ax[2].set_yscale("log")
     ax[2].set_ylim(8, 700)
     ax[2].set_ylabel("epoch")

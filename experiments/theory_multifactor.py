@@ -300,7 +300,7 @@ def main():
         r"\begin{table}[htbp]",
         r"\TABLE{Numerical verification of Theorem~1 on the"
         r" solver's own projector and consensus code.\label{tab:multifactor}}",
-        r"{\small\begin{tabular}{lrrcrrrr}",
+        r"{\footnotesize\begin{tabular}{lrrcrrrr}",
         r"\toprule",
         r"disequality graph & $|V|$ & $|E|$ & bipartite & $\mu_{\max}(L)$ &"
         r" $\gamma^\star$ & lin.\ err. & f.p.\ err. \\",

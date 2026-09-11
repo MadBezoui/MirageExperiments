@@ -1,0 +1,6 @@
+org\mirager\choco\ChocoResult.class
+org\mirager\choco\CspJson$Constraint.class
+org\mirager\choco\CspJson$Variable.class
+org\mirager\choco\ChocoBatchRunner.class
+org\mirager\choco\ChocoModelBuilder.class
+org\mirager\choco\CspJson.class

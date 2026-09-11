@@ -85,15 +85,67 @@ def random_bipartite(n, deg, rng):
     return n, sorted(edges)
 
 
+def _is_bipartite(n, edges):
+    adj = [[] for _ in range(n)]
+    for i, j in edges:
+        adj[i].append(j)
+        adj[j].append(i)
+    colour = [-1] * n
+    for s in range(n):
+        if colour[s] != -1:
+            continue
+        colour[s] = 0
+        stack = [s]
+        while stack:
+            v = stack.pop()
+            for w in adj[v]:
+                if colour[w] == -1:
+                    colour[w] = 1 - colour[v]
+                    stack.append(w)
+                elif colour[w] == colour[v]:
+                    return False
+    return True
+
+
+def _is_connected(n, edges):
+    adj = [[] for _ in range(n)]
+    for i, j in edges:
+        adj[i].append(j)
+        adj[j].append(i)
+    seen, stack = {0}, [0]
+    while stack:
+        for w in adj[stack.pop()]:
+            if w not in seen:
+                seen.add(w)
+                stack.append(w)
+    return len(seen) == n
+
+
 def random_nonbipartite(n, deg, rng):
-    """Disequality graph containing an odd cycle: unsatisfiable over booleans."""
+    """Disequality graph containing an odd cycle: unsatisfiable over booleans.
+
+    Chords inside one part create an odd cycle only when their endpoints are
+    already joined by an even path, which a disconnected bipartite graph need
+    not provide: there, one component's colouring can be flipped to absorb the
+    chord. The construction is therefore checked rather than assumed.
+    """
     _, edges = random_bipartite(n, deg, rng)
     edges = set(edges)
     # add a chord inside one side, creating an odd cycle
     a = list(range(n // 2))
     edges.add((a[0], a[1]))
     edges.add((a[1], a[2] if len(a) > 2 else a[0]))
-    return n, sorted(e for e in edges if e[0] != e[1])
+    out = sorted(e for e in edges if e[0] != e[1])
+    assert not _is_bipartite(n, out), (
+        "the chord construction left the graph 2-colourable, so the instance "
+        "is satisfiable and outside the intended family")
+    # Connectedness matters as much as non-bipartiteness here: a bipartite
+    # component anywhere in the graph puts mu_max at 2, which would make
+    # gamma = 1/2 critical rather than subcritical for this family.
+    assert _is_connected(n, out), (
+        "the graph is disconnected, so a bipartite component may still carry "
+        "mu_max = 2 and the configuration would not be subcritical")
+    return n, out
 
 
 def random_boolean_tables(n, m, arity, rng):
@@ -548,6 +600,7 @@ def main():
     frz = summary[r"non-bipartite, frozen $\gamma=1/4$"]
     annealed = [r for r in records if r["config"].endswith("annealed default")]
     late = summary[r"non-bipartite, frozen $\gamma=1/2$"]
+    bipcrit = summary[r"bipartite, frozen $\gamma=1/2$"]
     macros = {
         "RevFpSeeds": args.seeds,
         "RevFpN": args.n,
@@ -576,6 +629,16 @@ def main():
         # continuation, which is also what the classification uses.
         "RevFpApproxFp": sum(1 for r in records
                              if r["classification"] == "approximate fixed point"),
+        # Outcomes of the two declared diagnostics that are not otherwise
+        # reported: the cycle tests and the perturbation-return test.
+        "RevFpPeriodic": sum(1 for r in records
+                             if r["classification"].startswith("period-")),
+        "RevFpNonStationary": sum(1 for r in records
+                                  if r["classification"] == "non-stationary"),
+        "RevFpReturnAll": sum(1 for r in records
+                              if r["perturbation_return_fraction"] == 1.0),
+        "RevFpReturnNone": sum(1 for r in records
+                               if r["perturbation_return_fraction"] == 0.0),
         # Terminal feasibility of the annealed default, so that "commits to an
         # infeasible assignment" is a measurement rather than an impression.
         "RevFpAnnealedRuns": len(annealed),
@@ -585,6 +648,13 @@ def main():
         # The configuration in which the trigger and the displacement
         # threshold swap order: frozen gamma = 1/2 on a non-bipartite graph,
         # which is subcritical there because gamma* > 1/2.
+        # Distance from the uniform point at the exactly critical ratio: the
+        # neutral bipartition direction keeps whatever the initialization put
+        # there, so this is small but not zero.
+        "RevFpBipCritGap": f"{bipcrit['gap']:.6f}",
+        "RevFpBipCritDev": (lambda d: "%s\\times10^{%d}" % (
+            f"{d:.1e}".split("e")[0], int(f"{d:.1e}".split("e")[1])))(
+            0.5 - bipcrit["gap"]),
         "RevFpLateDispl": f"{late['stat']:.0f}",
         "RevFpLateDisplN": late["n_stat"],
         "RevFpLateDisplRuns": late["n"],

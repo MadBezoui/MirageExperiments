@@ -204,6 +204,38 @@ def main() -> None:
     out["RevHybSubsetN"] = str(len({canon(r["instance"]) for r in grid}))
     out["RevHybSubsetSeeds"] = str(len({r["seed"] for r in grid}))
 
+    # The grid was partly re-executed on resumption, so it must be keyed and
+    # deduplicated before any rate is taken from it; the archived aggregation
+    # did not do this, and its cell rates are inflated by the duplicates.
+    gkeys: dict = {}
+    for r in grid:
+        gkeys.setdefault((r.get("warmup_epochs"), r.get("hint_mode"),
+                          canon(r["instance"]), r["seed"]), r)
+    gcells: dict = {}
+    for (w, h, _i, _s), r in gkeys.items():
+        gcells.setdefault((w, h), []).append(r)
+
+    def _dec(r):
+        return r["status"] in ("SAT_VERIFIED", "UNSAT", "UNSAT_PROVED")
+
+    stats = {}
+    for c, v in gcells.items():
+        d = [r for r in v if _dec(r)]
+        stats[c] = (len(d), sum(1 for r in v if r["status"] == "SAT_VERIFIED"),
+                    len(v), statistics.median(r["time"] for r in d))
+    ctrl = (0, "none")
+    hinted = {c: t for c, t in stats.items() if c[1] != "none"}
+    best = max(hinted, key=lambda c: (hinted[c][0], -hinted[c][3]))
+    out["RevHybGridRuns"] = str(stats[ctrl][2])
+    out["RevHybCtrlDec"] = f"{100 * stats[ctrl][0] / stats[ctrl][2]:.1f}"
+    out["RevHybCtrlWit"] = f"{100 * stats[ctrl][1] / stats[ctrl][2]:.1f}"
+    out["RevHybCtrlMed"] = f"{stats[ctrl][3]:.1f}"
+    out["RevHybBestDec"] = f"{100 * stats[best][0] / stats[best][2]:.1f}"
+    out["RevHybBestMed"] = f"{stats[best][3]:.1f}"
+    out["RevHybBestCellDedup"] = f"warm-up {best[0]}, {best[1]}"
+    out["RevHybNoCellBeatsCtrl"] = (
+        "yes" if max(t[0] for t in hinted.values()) <= stats[ctrl][0] else "no")
+
     abl = load(os.path.join(args.raw, "revision_ablation", "*.jsonl"))
     executed = {canon(r["instance"]) for r in abl if r["status"] != "SKIPPED_SIZE"}
     out["RevAblExecInstances"] = str(len(executed))
@@ -243,7 +275,7 @@ def main() -> None:
     with open(main_path, "w") as fh:
         fh.write("\n".join([
             r"\begin{table}[htbp]", MAIN_CAPTION,
-            r"{\begin{tabular}{lrrrrrrrrr}", r"\toprule",
+            r"{\small\begin{tabular}{lrrrrrrrrr}", r"\toprule",
             r"solver & \#inst & SAT & UNSAT & unk. & unsup. & error & wit.\% "
             r"& dec.\% & med.\ solved-case time (s) \\",
             r"\midrule", *main_rows, r"\bottomrule",

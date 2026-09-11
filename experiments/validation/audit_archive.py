@@ -305,7 +305,7 @@ def main():
         r"\TABLE{Record integrity across the six experiments, each keyed by"
         r" experiment, configuration, representation and"
         r" seed.\label{tab:integrity}}",
-        r"{\begin{tabular}{lrrrrrr}",
+        r"{\small\begin{tabular}{lrrrrrr}",
         r"\toprule",
         r"experiment & expected & raw & unique & dup. & missing & conflicting \\",
         r"\midrule",
@@ -417,7 +417,7 @@ def main():
         r"\TABLE{Classification of every terminal \textsc{error} record in the"
         r" main sweep, from the error strings retained in the raw"
         r" logs.\label{tab:errors}}",
-        r"{\footnotesize\setlength{\tabcolsep}{4.5pt}\begin{tabular}{lr"
+        r"{\scriptsize\setlength{\tabcolsep}{4.5pt}\begin{tabular}{lr"
         + "r" * len(SOLVER_ORDER) + r"}",
         r"\toprule",
         r"class & all & " +
@@ -525,7 +525,7 @@ def main():
         r"\TABLE{Paired instance-level outcomes for the core and"
         r" dynamic-region configurations over all "
         + str(N) + r" benchmark entries.\label{tab:regionpaired}}",
-        r"{\begin{tabular}{lrrr}",
+        r"{\small\begin{tabular}{lrrr}",
         r"\toprule",
         r" & \multicolumn{2}{c}{core (no regions)} & \\",
         r"\cmidrule(lr){2-3}",

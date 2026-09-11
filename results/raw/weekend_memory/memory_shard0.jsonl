@@ -1,0 +1,148 @@
+{"instance": "Crossword-lex-h1506.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-lex-h1901.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-lex-h1907.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-lex-h2103.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-lex-h2108.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-lex-h2304.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-lex-h2309.json", "status": "SKIPPED_SIZE"}
+{"instance": "BusScheduling-cnt-c1.json", "size_mb": 1.002, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "BusScheduling-cnt-r2.json", "size_mb": 0.623, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-h1501.json", "size_mb": 19.393, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "BusScheduling-cnt-t1.json", "size_mb": 0.018, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-p04.json", "size_mb": 1.534, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-h0506.json", "size_mb": 2.525, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-vg-12-13.json", "size_mb": 2.519, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-p09.json", "size_mb": 3.181, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-p19.json", "size_mb": 19.191, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-vg-10-11.json", "size_mb": 5.879, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-vg-11-12.json", "size_mb": 3.979, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-p14.json", "size_mb": 6.289, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-vg-5-8.json", "size_mb": 4.958, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-vg-14-15.json", "size_mb": 0.941, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-vg-16-18.json", "size_mb": 0.65, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-vg-4-7.json", "size_mb": 3.28, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-vg-13-14.json", "size_mb": 1.511, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-vg-15-16.json", "size_mb": 0.693, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-ogd-h1501.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-h1506.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-h1901.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-h1906.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-h2101.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-h2106.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-h2301.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-h2306.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-lex-vg-7-8.json", "size_mb": 7.6, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-vg-8-8.json", "size_mb": 8.059, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-lex-vg-6-8.json", "size_mb": 6.452, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-ogd-p16.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-p21.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-vg-10-13.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-vg-11-14.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-vg-12-15.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-vg-13-16.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-p01.json", "size_mb": 0.015, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-ogd-vg-14-17.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-vg-15-18.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-h0506.json", "size_mb": 5.31, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-ogd-vg-5-8.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-vg-6-8.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-vg-7-8.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-vg-8-8.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-vg-9-13.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-lex-vg-9-13.json", "size_mb": 6.901, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-ogd2008-h1501.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-h1506.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-h1901.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-h1906.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-h2101.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-h2106.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-h2301.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-h2306.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-vg-16-19.json", "size_mb": 13.648, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-ogd-p11.json", "size_mb": 17.089, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-ogd2008-p11.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-p16.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-p21.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-vg-10-13.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-vg-11-14.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-vg-12-15.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-vg-13-16.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-vg-14-17.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-vg-15-18.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-vg-16-19.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-vg-4-7.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-vg-5-8.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-vg-6-8.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-vg-7-8.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-vg-8-8.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-vg-9-13.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd-p06.json", "size_mb": 4.68, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-uk-h1501.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-h1506.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-h1901.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-h1906.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-h2101.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-h2106.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-h2301.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-h2306.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-h0506.json", "size_mb": 12.627, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-ogd2008-p01.json", "size_mb": 0.027, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-ogd-vg-4-7.json", "size_mb": 17.606, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-uk-p16.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-p21.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-vg-10-13.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-vg-11-14.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-vg-12-15.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-vg-13-16.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-vg-14-17.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-vg-15-18.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-ogd2008-p06.json", "size_mb": 10.974, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-uk-h0506.json", "size_mb": 7.852, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-uk-vg-5-8.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-vg-6-8.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-vg-7-8.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-vg-8-8.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-vg-9-13.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-p01.json", "size_mb": 0.016, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-h1501.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-words-h1506.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-words-h1901.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-words-h1906.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-words-h2101.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-words-h2106.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-words-h2302.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-words-h2307.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-p06.json", "size_mb": 6.57, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-uk-p11.json", "size_mb": 17.098, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-uk-vg-16-19.json", "size_mb": 12.147, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-p17.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-uk-vg-4-7.json", "size_mb": 16.255, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-p07.json", "size_mb": 2.501, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-p02.json", "size_mb": 0.157, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-h0506.json", "size_mb": 3.131, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-p12.json", "size_mb": 4.221, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-p22.json", "size_mb": 10.09, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-vg-10-14.json", "size_mb": 12.274, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-vg-11-15.json", "size_mb": 9.443, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-vg-13-17.json", "size_mb": 4.716, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-vg-14-18.json", "size_mb": 2.801, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-vg-12-16.json", "size_mb": 6.613, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-vg-15-19.json", "size_mb": 1.841, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-vg-16-20.json", "size_mb": 1.166, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-vg-4-8.json", "size_mb": 5.419, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "GraphColoring-2-fullins-3.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-words-vg-5-9.json", "size_mb": 8.303, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "GraphColoring-anna.json", "status": "SKIPPED_SIZE"}
+{"instance": "GraphColoring-games120.json", "status": "SKIPPED_SIZE"}
+{"instance": "GraphColoring-miles250.json", "status": "SKIPPED_SIZE"}
+{"instance": "GraphColoring-mug88-1.json", "status": "SKIPPED_SIZE"}
+{"instance": "GraphColoring-myciel6.json", "status": "SKIPPED_SIZE"}
+{"instance": "GraphColoring-queen13-13.json", "status": "ERROR", "error": "bad file"}
+{"instance": "GraphColoring-queen8-8.json", "status": "SKIPPED_SIZE"}
+{"instance": "Crossword-words-vg-7-9.json", "size_mb": 14.824, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-vg-6-9.json", "size_mb": 11.75, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-vg-8-9.json", "size_mb": 16.375, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "Crossword-words-vg-9-9.json", "size_mb": 16.824, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "GraphColoring-3-insertions-3.json", "size_mb": 17.562, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "driverlogw-09.json", "size_mb": 8.484, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
+{"instance": "driverlogw-02c.json", "size_mb": 1.558, "mirage_peak_mb": -1, "ortools_peak_mb": -1, "mirage_status": "ERROR", "ortools_status": "ERROR"}
