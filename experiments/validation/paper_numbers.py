@@ -58,9 +58,9 @@ SOLVER_ORDER = ["choco", "ortools", "hybrid", "mirage_regions", "mirage",
 SOLVER_LABEL = {
     "choco": "Choco",
     "ortools": "OR-Tools CP-SAT",
-    "hybrid": r"MIRAGE-R$\to$CP-SAT",
-    "mirage_regions": "MIRAGE-R+regions",
-    "mirage": "MIRAGE-R",
+    "hybrid": r"MIRAGE-R$\to$CP-SAT (archived impl.)",
+    "mirage_regions": "MIRAGE-R+regions (archived impl.)",
+    "mirage": "MIRAGE-R (archived impl.)",
     "runcsp": "RUN-CSP",
 }
 

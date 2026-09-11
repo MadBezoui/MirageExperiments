@@ -247,11 +247,12 @@ def decode(state, names):
 
 
 def perturb(state, magnitude, rng):
-    """Perturb by `magnitude` in logit coordinates, then renormalize."""
+    """Perturb by `magnitude` in scalar logit coordinates for Boolean variables."""
     out = {}
     for v, p in state.items():
         lp = np.log(np.clip(p, 1e-300, 1.0))
-        lp = lp + rng.normal(0.0, magnitude, size=lp.shape)
+        # For Boolean variables, shifting one log-probability by epsilon shifts the scalar logit by epsilon.
+        lp[1] += rng.normal(0.0, magnitude)
         lp -= lp.max()
         q = np.exp(lp)
         out[v] = q / q.sum()

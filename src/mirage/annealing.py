@@ -6,10 +6,9 @@ temperature schedule now has a declared positive floor
     tau_t = max(tau_min, tau_0 * tau_decay^t),
 
 so that 1/tau_t is always finite. The archived schedule was the unfloored
-geometric decay tau_t = tau_0 * 0.95^t, which reaches the smallest positive
-double at epoch 14,527 for tau_0 = 2 and then underflows to exactly zero,
-after which the tuple log-weight (1/tau) * sum_i log p_i(t_i) is undefined and
-the run no longer executes the intended algorithm.
+geometric decay tau_t = tau_0 * 0.95^t, whose corresponding closed form first rounds to zero at epoch 14,527,
+whereas the archived iterative recurrence stalls at a positive subnormal value;
+tuple-log-weight overflow occurs earlier.
 
 The floor is a declared hyperparameter, not a silent guard: `tau_min` appears
 in Hyperparameters and is reported in the protocol table.
@@ -85,7 +84,7 @@ class ArchivedAnnealingSchedule(AnnealingSchedule):
     """The pre-correction schedule with no temperature floor.
 
     Retained only to reproduce the archived behaviour, including the underflow
-    at epoch 14,527 for tau_0 = 2.
+    since its closed form first rounds to zero at epoch 14,527.
     """
 
     def __init__(self, hp: Hyperparameters):
