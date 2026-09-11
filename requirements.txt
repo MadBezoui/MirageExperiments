@@ -1,0 +1,32 @@
+# Pinned environment for the code-only reproduction of
+#   "Fractional Fixed Points and Decoded-Progress Plateaus in a
+#    Product-of-Experts Heuristic for Constraint Satisfaction".
+#
+# These are the versions the reproduction was last verified against
+# (Python 3.11.7, macOS). They are NOT the versions of the archived sweep:
+# that sweep used ortools 9.8.3296 and choco-solver 4.10.13, as the paper
+# states, and it cannot be re-run in any case because the normalized
+# instances were not retained.
+#
+# Only numpy, matplotlib and pytest are needed for the two reproducible
+# experiments (Theorem 1 verification and the fixed-point diagnostics).
+# The remainder are needed for the archive audit, the CP-SAT baseline and
+# the hybrid.
+
+numpy==1.26.4
+matplotlib==3.10.6
+pytest==7.4.0
+
+# archive audit and result aggregation
+pandas==3.0.3
+scipy==1.16.2
+
+# CP-SAT baseline and the warm-started hybrid
+ortools==9.15.6755
+
+# peak-RSS profiling for the deposited memory microbenchmark
+psutil==5.9.0
+
+# RUN-CSP baseline and the deposited GPU throughput microbenchmark; not
+# required for anything reported in the paper
+torch==2.9.1

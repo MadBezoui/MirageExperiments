@@ -1,0 +1,5 @@
+SOUNDNESS CROSS-CHECK (zero false positives expected)
+instances proved UNSAT by a complete solver: 148
+instances MIRAGE-family reported SAT_VERIFIED: 238
+CONFLICTS (MIRAGE SAT but complete-solver UNSAT): 0
+RESULT: PASS (0 false positives)

@@ -1,0 +1,2 @@
+{"instance": "Crossword-uk-vg-4-4.json", "solver": "mirage_full", "seed": 0, "status": "SAT_VERIFIED", "time": 1.4881057739257812, "violations": 0, "error": ""}
+{"instance": "Crossword-uk-vg-4-5.json", "solver": "mirage_full", "seed": 0, "status": "UNKNOWN_TIMEOUT", "time": 30.176541805267334, "violations": 3, "error": ""}

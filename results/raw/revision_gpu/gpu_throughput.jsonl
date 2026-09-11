@@ -1,0 +1,7 @@
+{"n_vars": 200, "n_constraints": 400, "domain": 8, "tuples_per_con": 16, "cuda_available": true, "sec_per_epoch": {"numpy_loop": 0.004558, "torch_cpu": 0.000571, "torch_cuda": 0.000767}}
+{"n_vars": 500, "n_constraints": 1000, "domain": 8, "tuples_per_con": 16, "cuda_available": true, "sec_per_epoch": {"numpy_loop": 0.016799, "torch_cpu": 0.000651, "torch_cuda": 0.000366}}
+{"n_vars": 1000, "n_constraints": 2000, "domain": 8, "tuples_per_con": 16, "cuda_available": true, "sec_per_epoch": {"numpy_loop": 0.022721, "torch_cpu": 0.000799, "torch_cuda": 0.000368}}
+{"n_vars": 2000, "n_constraints": 4000, "domain": 8, "tuples_per_con": 16, "cuda_available": true, "sec_per_epoch": {"numpy_loop": 0.048643, "torch_cpu": 0.001205, "torch_cuda": 0.000357}}
+{"n_vars": 5000, "n_constraints": 10000, "domain": 8, "tuples_per_con": 16, "cuda_available": true, "sec_per_epoch": {"numpy_loop": 0.109433, "torch_cpu": 0.00184, "torch_cuda": 0.00055}}
+{"n_vars": 10000, "n_constraints": 20000, "domain": 8, "tuples_per_con": 16, "cuda_available": true, "sec_per_epoch": {"torch_cpu": 0.002865, "torch_cuda": 0.000367}}
+{"n_vars": 20000, "n_constraints": 40000, "domain": 8, "tuples_per_con": 16, "cuda_available": true, "sec_per_epoch": {"torch_cpu": 0.004567, "torch_cuda": 0.000385}}

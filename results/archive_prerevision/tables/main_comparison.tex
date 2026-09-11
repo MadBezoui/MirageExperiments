@@ -1,0 +1,17 @@
+\begin{table}[t]
+\TABLE{Main comparison on the frozen benchmark set (majority-of-seeds).\label{tab:main}}
+{\begin{tabular}{lrrrr}
+\toprule
+Solver & \#SAT verified & \#UNSAT & \#timeout & median time (s) \\
+\midrule
+OR-Tools CP-SAT & 236 & 148 & 374 & 27.34 \\
+MIRAGE-R$\to$CP-SAT (hybrid) & 238 & 145 & 379 & 37.89 \\
+Choco & 294 & 0 & 452 & 3.01 \\
+Gecode & 235 & 0 & 510 & 47.00 \\
+MIRAGE-R + regions & 65 & 0 & 673 & 14.51 \\
+MIRAGE-R & 63 & 0 & 676 & 15.41 \\
+RUN-CSP & 0 & 0 & 736 & nan \\
+\bottomrule
+\end{tabular}}
+{}
+\end{table}

@@ -1,0 +1,58 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# LaTeX build products (the PDFs we ship are committed explicitly)
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.blg
+*.synctex.gz
+*.spl
+*.loa
+*.toc
+*.tmp
+
+# regenerable build directories of the submission set
+paper/ijoc/submission/main/
+paper/ijoc/submission/ec/
+
+# scratch
+Trash/
+
+# Pre-revision "weekend" logs: 101 MB of superseded runs that carried a
+# fabricated regions_added field and broken baseline adapters. They are never
+# mixed into the paper's numbers (see aggregate.py) and are deliberately not
+# distributed, so that nobody can analyse them by mistake.
+Code/results/raw/weekend/
+Code/results/raw/weekend_ablation/
+Code/results/raw/weekend_memory/
+Code/results/raw/weekend_theory/
+
+# Maven build scratch; the packaged jar itself is kept so the Choco baseline
+# runs without a build step.
+Code/baselines/choco/target/classes/
+Code/baselines/choco/target/maven-archiver/
+Code/baselines/choco/target/maven-status/
+Code/baselines/choco/target/original-*.jar
+
+# Superseded two-file version of the submission (manuscript + e-companion).
+# The submission is the single paper/ijoc/paper.tex; these are kept on disk
+# for reference but are not part of the repository.
+paper/ijoc/manuscript.*
+paper/ijoc/manuscript_prev.tex.bak
+paper/ijoc/manuscript_v2_backup.tex
+paper/ijoc/ec.tex
+paper/ijoc/ec.pdf
+paper/ijoc/cover_letter_ijoc_OLD.md
+paper/ijoc/paper_flat.pdf
+paper/ijoc/response_letter.md
+paper/ijoc/response_to_autoreview.md
