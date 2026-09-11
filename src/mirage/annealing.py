@@ -84,7 +84,7 @@ class ArchivedAnnealingSchedule(AnnealingSchedule):
     """The pre-correction schedule with no temperature floor.
 
     Retained only to reproduce the archived behaviour, including the underflow
-    since its closed form first rounds to zero at epoch 14,527.
+    since its closed form first rounds to zero at epoch 14,527, whereas the archived iterative recurrence stalls at a positive subnormal value.
     """
 
     def __init__(self, hp: Hyperparameters):
