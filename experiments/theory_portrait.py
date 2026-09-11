@@ -1,4 +1,4 @@
-"""Exact trajectories of the implemented frozen map (analytical toy example).
+"""Exact trajectories up to the implementation floor (analytical toy example).
 
 This script produces the figure that replaces the earlier purely schematic
 "fixed point versus plateau" drawing. Every trajectory shown is computed by

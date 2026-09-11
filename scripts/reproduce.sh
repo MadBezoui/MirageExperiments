@@ -3,8 +3,8 @@
 #
 #   ./scripts/reproduce.sh            # tests + code-only results + audit + PDFs
 #   ./scripts/reproduce.sh tests      # unit and regression tests only
-#   ./scripts/reproduce.sh theory     # Theorem 1 verification (Table 2, Figure 1)
-#   ./scripts/reproduce.sh diagnostics# fixed-point diagnostics (Figure 3)
+#   ./scripts/reproduce.sh theory     # Theorem 1 verification (Table 1, Figure 2)
+#   ./scripts/reproduce.sh diagnostics# fixed-point diagnostics (Figure 4)
 #   ./scripts/reproduce.sh audit      # archive audit from the retained raw logs
 #   ./scripts/reproduce.sh paper      # build manuscript.pdf, ec.pdf, paper.pdf
 #   ./scripts/reproduce.sh verify     # rerun everything and diff against the
@@ -18,21 +18,30 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 export PYTHONPATH="${PYTHONPATH:-.}"
 
-# The manuscript directory is a sibling of this repository in the authors'
-# working tree and in-tree in a standalone artifact clone. Resolve it, and say
-# so plainly when it is absent rather than writing tables into nowhere.
+MODE="${1:-all}"
+
 if [ -f paper/ijoc/paper.tex ]; then PAPERDIR=paper/ijoc
 elif [ -f ../paper/ijoc/paper.tex ]; then PAPERDIR=../paper/ijoc
-else
-  echo "paper/ijoc/paper.tex not found, here or beside this repository."
-  echo "Table regeneration and the PDF build need it; see README.md."
-  exit 2
+else PAPERDIR=""
 fi
-export PAPERDIR
-TABLES=$PAPERDIR/tables
-FIGURES=$PAPERDIR/figures
+
+if [ -n "$PAPERDIR" ]; then
+  export PAPERDIR
+  TABLES=$PAPERDIR/tables
+  FIGURES=$PAPERDIR/figures
+else
+  # If manuscript is absent, generate into a local directory
+  TABLES=results/generated/tables
+  FIGURES=results/generated/figures
+  if [[ "$MODE" == "verify" || "$MODE" == "paper" || "$MODE" == "all" ]]; then
+    echo "paper/ijoc/paper.tex not found, here or beside this repository."
+    echo "Table regeneration and the PDF build need it; see README.md."
+    exit 2
+  fi
+  mkdir -p "$TABLES" "$FIGURES"
+fi
+
 PY=${PYTHON:-python3}
-MODE="${1:-all}"
 
 # The Choco baseline jar is built for Java 17; a Java 11 runtime fails with
 # UnsupportedClassVersionError. Point JAVA_HOME at a 17+ JDK if one is around.
@@ -49,14 +58,14 @@ run_tests() {
 }
 
 run_theory() {
-  hr "Theorem 1 against the implementation (Table 2, Figure 1, theory macros)"
+  hr "Theorem 1 against the implementation (Table 1, Figure 2, theory macros)"
   "$PY" -m experiments.theory_multifactor --out "$1" --figdir "$FIGURES"
   hr "exact trajectories of the implemented map (Figure 2)"
   "$PY" -m experiments.theory_portrait --out "$1" --figdir "$FIGURES"
 }
 
 run_diagnostics() {
-  hr "fixed-point diagnostics, 7 configurations x 8 seeds (Figure 3)"
+  hr "fixed-point diagnostics, 7 configurations x 8 seeds (Figure 4)"
   "$PY" -m experiments.fixedpoint_diagnostics \
       --n 30 --seeds 8 \
       --out results/raw/diagnostics --tables "$1" --figdir "$FIGURES"
@@ -72,7 +81,7 @@ run_audit() {
   hr "temperature-underflow arithmetic over the archived epoch counts"
   "$PY" -m experiments.validation.underflow_analysis \
       --raw results/raw --tables "$1"
-  hr "decoded-progress trajectories (Figure 6)"
+  hr "decoded-progress trajectories (Figure 5)"
   "$PY" -m experiments.fig_trajectories \
       --raw results/raw/revision_theory/trajectories.jsonl \
       --out "$1" --figdir "$FIGURES"
@@ -110,12 +119,12 @@ case "$MODE" in
     # numbers. The others are regenerated too, but they are deposited in the
     # artifact rather than typeset, and their committed copies carry editorial
     # trims that the generators do not reproduce.
-    used=$("$PY" - <<'EOF'
+    used=$("$PY" - <<'INNEREOF'
 import os, re, pathlib
 src = (pathlib.Path(os.environ["PAPERDIR"]) / "paper.tex").read_text()
 print(" ".join(sorted({m + ".tex" for m in
       re.findall(r"\\input\{tables/([a-z_]+)", src)})))
-EOF
+INNEREOF
 )
     fail=0
     for b in $used; do

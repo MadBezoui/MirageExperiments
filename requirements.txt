@@ -4,7 +4,7 @@
 #
 # These are the versions the reproduction was last verified against
 # (Python 3.11.7, macOS). They are NOT the versions of the archived sweep:
-# that sweep used ortools 9.8.3296 and choco-solver 4.10.13, as the paper
+# the sweep is believed to have used ortools 9.8.3296 and choco-solver 4.10.13, as the paper
 # states, and it cannot be re-run in any case because the normalized
 # instances were not retained.
 #
