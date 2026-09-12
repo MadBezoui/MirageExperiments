@@ -1,0 +1,568 @@
+% ===== Continuous local search for Boolean SAT =====
+
+@article{gu1994global,
+  author  = {Gu, Jun},
+  title   = {Global Optimization for Satisfiability ({SAT}) Problem},
+  journal = {IEEE Transactions on Knowledge and Data Engineering},
+  volume  = {6},
+  number  = {3},
+  pages   = {361--381},
+  year    = {1994}
+}
+
+@inproceedings{kyrillidis2020fouriersat,
+  volume    = {34},
+  number    = {2},
+  pages     = {1552--1560},
+  author    = {Kyrillidis, Anastasios and Shrivastava, Anshumali and Vardi, Moshe Y. and Zhang, Zhiwei},
+  title     = {{FourierSAT}: A Fourier Expansion-Based Algebraic Framework for Solving Hybrid {Boolean} Constraints},
+  booktitle = {AAAI Conference on Artificial Intelligence},
+  year      = {2020}
+}  % verified against the AAAI record, 11 Sep 2026
+
+@inproceedings{kyrillidis2021gradsat,
+  volume    = {35},
+  number    = {5},
+  pages     = {3841--3850},
+  author    = {Kyrillidis, Anastasios and Vardi, Moshe Y. and Zhang, Zhiwei},
+  title     = {On Continuous Local {BDD}-Based Search for Hybrid {SAT} Solving},
+  booktitle = {AAAI Conference on Artificial Intelligence},
+  year      = {2021}
+}  % verified against the AAAI record, 11 Sep 2026
+
+@article{cen2025fastfourier,
+  author    = {Cen, Yunuo and Zhang, Zhiwei and Fong, Xuanyao},
+  title     = {Massively Parallel Continuous Local Search for Hybrid {SAT}
+               Solving on {GPUs}},
+  journal   = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {39},
+  number    = {11},
+  pages     = {11140--11149},
+  year      = {2025},
+  note      = {Also available as arXiv:2308.15020}
+}
+
+@misc{fouriersatgithub,
+  author       = {{Vardi Group}},
+  title        = {{FourierSAT}: A Continuous Local Search {SAT}/{MaxSAT} Solver},
+  howpublished = {\url{https://github.com/vardigroup/FourierSAT}},
+  note         = {Accessed 2026}
+}
+
+@inproceedings{amizadeh2019circuitsat,
+  author    = {Amizadeh, Saeed and Matusevych, Sergiy and Weimer, Markus},
+  title     = {Learning To Solve Circuit-{SAT}: An Unsupervised Differentiable Approach},
+  booktitle = {Proceedings of the International Conference on Learning Representations (ICLR)},
+  year      = {2019}
+}
+
+@inproceedings{berthet2020perturbed,
+  author    = {Berthet, Quentin and Blondel, Mathieu and Teboul, Olivier and Cuturi, Marco and Vert, Jean-Philippe and Bach, Francis},
+  title     = {Learning with Differentiable Perturbed Optimizers},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2020}
+}
+
+% Deprecated alias retained so that older drafts still compile; the citation
+% key now matches the publication year. Use boussemart2016xcsp3.
+@article{boussemart2020xcsp3,
+  crossref = {boussemart2016xcsp3}
+}
+
+@misc{parallelcls2025,
+  title        = {A Study of Parallel Continuous Local Search},
+  howpublished = {arXiv:2606.06656},
+  year         = {2025}
+}  % VERIFY authors, title, arXiv id
+
+@book{odonnell2014analysis,
+  author    = {O'Donnell, Ryan},
+  title     = {Analysis of Boolean Functions},
+  publisher = {Cambridge University Press},
+  year      = {2014}
+}
+
+% ===== Continuous relaxation for finite-domain CSP =====
+
+@misc{cen2025fouriercsp,
+  author       = {Cen, Yunuo and Wang, Zixuan and Zhang, Jintao and
+                  Zhang, Zhiwei and Fong, Xuanyao},
+  title        = {{FourierCSP}: Differentiable Constraint Satisfaction Problem Solving by {Walsh--Fourier} Expansion},
+  howpublished = {arXiv:2510.04480v2, revised 28 January 2026},
+  year         = {2025}
+}  % verified against the arXiv record (v2), 11 Sep 2026
+
+@article{tskmnet2024,
+  title   = {{T-SKM-Net}: Trainable Neural Network Framework for Linear Problems},
+  journal = {AAAI Conference on Artificial Intelligence},
+  year    = {2024}
+}  % VERIFY authors, exact title, pages
+
+@inproceedings{projnet2025,
+  title     = {Enforcing Convex Constraints in Graph Neural Networks ({ProjNet})},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2025}
+}  % VERIFY authors and title
+
+@misc{xu2025selfsupervised,
+  title        = {Self-Supervised Transformers as Iterative Solution Improvers for Constraint Satisfaction},
+  howpublished = {arXiv:2502.15794},
+  year         = {2025}
+}  % VERIFY authors
+
+@inproceedings{tonshoff2023one,
+  title     = {One Model, Any {CSP}: Graph Neural Networks as Fast Global Search Heuristics for Constraint Satisfaction},
+  booktitle = {Proceedings of the International Joint Conference on Artificial Intelligence (IJCAI)},
+  year      = {2023}
+}  % VERIFY authors (Toenshoff et al.?)
+
+@inproceedings{sgat2025,
+  title     = {Graph-Based Attention for Differentiable {MaxSAT} Solving},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2025}
+}  % VERIFY authors and title
+
+@misc{benchmarkgnn2026,
+  title        = {Benchmarking Graph Neural Networks in Solving Hard Constraint Satisfaction Problems},
+  howpublished = {arXiv:2602.18419},
+  year         = {2026}
+}  % VERIFY authors and arXiv id
+
+@misc{mlcsp2025survey,
+  title        = {Machine Learning Algorithms for Assisting Solvers for Constraint Satisfaction Problems},
+  howpublished = {Optimization Online},
+  year         = {2025}
+}  % VERIFY authors and exact title
+
+% ===== Constraint / clause weighting and SLS =====
+
+@article{thornton2005clause,
+  author  = {Thornton, John},
+  title   = {Clause Weighting Local Search for {SAT}},
+  journal = {Journal of Automated Reasoning},
+  volume  = {35},
+  number  = {1--3},
+  pages   = {97--142},
+  year    = {2005}
+}  % pages verified, 11 Sep 2026
+
+@inproceedings{hutter2002scaling,
+  volume    = {2470},
+  pages     = {233--248},
+  author    = {Hutter, Frank and Tompkins, Dave A. D. and Hoos, Holger H.},
+  title     = {Scaling and Probabilistic Smoothing: Efficient Dynamic Local Search for {SAT}},
+  booktitle = {Principles and Practice of Constraint Programming (CP)},
+  year      = {2002}
+}  % venue and pages verified, 11 Sep 2026
+
+@inproceedings{chu2023nuwls,
+  author    = {Chu, Yi and Cai, Shaowei and Luo, Chuan},
+  title     = {{NuWLS}: Improving Local Search for (Weighted) Partial {MaxSAT} by New Weighting Techniques},
+  booktitle = {AAAI Conference on Artificial Intelligence},
+  year      = {2023}
+}  % VERIFY author list
+
+@article{cai2016partial,
+  author  = {Cai, Shaowei and Luo, Chuan and Lin, Jinkun and Su, Kaile},
+  title   = {New local search methods for partial {MaxSAT}},
+  journal = {Artificial Intelligence},
+  volume  = {240},
+  pages   = {1--18},
+  year    = {2016}
+}
+
+@inproceedings{lei2018satlike,
+  author    = {Lei, Zhendong and Cai, Shaowei},
+  title     = {Solving (Weighted) Partial {MaxSAT} by Dynamic Local Search for {SAT}},
+  booktitle = {International Joint Conference on Artificial Intelligence (IJCAI)},
+  pages     = {1346--1352},
+  year      = {2018}
+}
+
+@inproceedings{unifiedweighting2024,
+  title     = {Enhancing {MaxSAT} Local Search via a Unified Soft Clause Weighting Scheme},
+  booktitle = {International Conference on Theory and Applications of Satisfiability Testing (SAT)},
+  series    = {LIPIcs},
+  volume    = {305},
+  year      = {2024}
+}  % VERIFY authors
+
+@misc{deepweighting2025,
+  title        = {Enhancing Local Search for {MaxSAT} with Deep Differentiation Weighting},
+  howpublished = {arXiv:2512.05619},
+  year         = {2025}
+}  % VERIFY authors
+
+@article{hoos2000local,
+  author  = {Hoos, Holger H. and St{\"u}tzle, Thomas},
+  title   = {Local Search Algorithms for {SAT}: An Empirical Evaluation},
+  journal = {Journal of Automated Reasoning},
+  volume  = {24},
+  number  = {4},
+  pages   = {421--481},
+  year    = {2000}
+}  % VERIFY
+
+@inproceedings{selman1994noise,
+  author    = {Selman, Bart and Kautz, Henry A. and Cohen, Bram},
+  title     = {Noise Strategies for Improving Local Search},
+  booktitle = {AAAI Conference on Artificial Intelligence},
+  year      = {1994}
+}
+
+@inproceedings{interian2023learning,
+  title     = {Learning Interpretable Heuristics for {WalkSAT}},
+  booktitle = {Principles of Knowledge Representation and Reasoning (KR)},
+  year      = {2023}
+}  % VERIFY authors (Interian et al.)
+
+@article{deepsls2025,
+  title   = {Using Deep Learning to Construct Stochastic Local Search {SAT} Solvers},
+  journal = {Machine Learning: Science and Technology},
+  year    = {2025}
+}  % VERIFY authors, volume
+
+@misc{dissipating2025,
+  title        = {Advancing Stochastic 3-{SAT} Solvers by Dissipating Oversatisfied Constraints},
+  howpublished = {arXiv:2506.15774},
+  year         = {2025}
+}  % VERIFY authors
+
+@article{minton1992minimizing,
+  author  = {Minton, Steven and Johnston, Mark D. and Philips, Andrew B. and Laird, Philip},
+  title   = {Minimizing Conflicts: A Heuristic Repair Method for Constraint Satisfaction and Scheduling Problems},
+  journal = {Artificial Intelligence},
+  volume  = {58},
+  number  = {1--3},
+  pages   = {161--205},
+  year    = {1992}
+}
+
+% ===== Adaptive penalties and mirror descent =====
+
+@inproceedings{aramon2024cra,
+  title     = {Controlling Continuous Relaxation for Combinatorial Optimization},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2024}
+}  % VERIFY authors and title
+
+@article{adaptivepenalty2017,
+  title   = {Theoretical and Practical Convergence of a Self-Adaptive Penalty Algorithm for Constrained Global Optimization},
+  journal = {Journal of Optimization Theory and Applications},
+  volume  = {174},
+  number  = {3},
+  year    = {2017}
+}  % VERIFY authors
+
+@book{nemirovsky1983problem,
+  author    = {Nemirovsky, Arkadi S. and Yudin, David B.},
+  title     = {Problem Complexity and Method Efficiency in Optimization},
+  publisher = {Wiley},
+  year      = {1983}
+}
+
+@article{beck2003mirror,
+  author  = {Beck, Amir and Teboulle, Marc},
+  title   = {Mirror Descent and Nonlinear Projected Subgradient Methods for Convex Optimization},
+  journal = {Operations Research Letters},
+  volume  = {31},
+  number  = {3},
+  pages   = {167--175},
+  year    = {2003}
+}
+
+@article{raskutti2015information,
+  author  = {Raskutti, Garvesh and Mukherjee, Sayan},
+  title   = {The Information Geometry of Mirror Descent},
+  journal = {IEEE Transactions on Information Theory},
+  volume  = {61},
+  number  = {3},
+  pages   = {1451--1457},
+  year    = {2015}
+}
+
+@book{amari2016information,
+  author    = {Amari, Shun-ichi},
+  title     = {Information Geometry and Its Applications},
+  publisher = {Springer},
+  year      = {2016}
+}
+
+@inproceedings{fatkhullin2024taming,
+  author    = {Fatkhullin, Ilyas and He, Niao},
+  title     = {Taming Nonconvex Stochastic Mirror Descent with General {Bregman} Divergence},
+  booktitle = {Proceedings of the International Conference on Artificial Intelligence and Statistics (AISTATS)},
+  year      = {2024}
+}  % VERIFY author list; arXiv:2402.17722
+
+@article{zhang2018convergence,
+  author  = {Zhang, Siqi and He, Niao},
+  title   = {On the Convergence Rate of Stochastic Mirror Descent for Nonsmooth Nonconvex Optimization},
+  journal = {arXiv preprint arXiv:1806.04781},
+  year    = {2018}
+}  % VERIFY
+
+@misc{interiormd2025,
+  title        = {On Exploration of an Interior Mirror Descent Flow for Stochastic Nonconvex Constrained Problems},
+  howpublished = {arXiv:2507.15264},
+  year         = {2025}
+}  % VERIFY authors
+
+% ===== Complete solvers, formats =====
+
+@misc{perron2023cpsat,
+  author       = {Perron, Laurent and Didier, Fr{\'e}d{\'e}ric},
+  title        = {{CP-SAT}, version 9.8.3296},
+  year         = {2023},
+  howpublished = {Google {OR-Tools}},
+  note         = {Software; believed to be the archived release}
+}
+
+@misc{ortools98,
+  author       = {Perron, Laurent and Furnon, Vincent},
+  title        = {{OR-Tools}, version 9.8.3296},
+  year         = {2023},
+  howpublished = {Google, released 15 November 2023,
+                  \url{https://github.com/google/or-tools/releases/tag/v9.8}}
+}
+
+@misc{krupke2024cpsatprimer,
+  author       = {Krupke, Dominik},
+  title        = {The {CP-SAT} Primer: Using and Understanding Google {OR-Tools'} {CP-SAT} Solver},
+  year         = {2024},
+  howpublished = {\url{https://github.com/d-krupke/cpsat-primer}}
+}  % VERIFY
+
+@article{prudhomme2022choco,
+  author  = {Prud'homme, Charles and Fages, Jean-Guillaume},
+  title   = {Choco-solver: A {Java} Library for Constraint Programming},
+  journal = {Journal of Open Source Software},
+  volume  = {7},
+  number  = {78},
+  pages   = {4708},
+  year    = {2022},
+  doi     = {10.21105/joss.04708},
+  note    = {Release believed archived: choco-solver 4.10.13, 5 June 2023}
+}
+
+@misc{schulte2006gecode,
+  author       = {Schulte, Christian and Tack, Guido and Lagerkvist, Mikael Z.},
+  title        = {{Gecode}: Generic Constraint Development Environment},
+  howpublished = {\url{https://www.gecode.org}},
+  year         = {2006}
+}
+
+@article{boussemart2016xcsp3,
+  author  = {Boussemart, Fr{\'e}d{\'e}ric and Lecoutre, Christophe and
+             Audemard, Gilles and Piette, C{\'e}dric},
+  title   = {{XCSP3}: An Integrated Format for Benchmarking Combinatorial
+             Constrained Problems},
+  journal = {Computing Research Repository (CoRR)},
+  volume  = {abs/1611.03398},
+  year    = {2016},
+}
+
+@misc{lecoutre2025competition,
+  author       = {Lecoutre, Christophe and others},
+  title        = {{XCSP3} Constraint Solver Competition},
+  year         = {2025},
+  howpublished = {\url{https://www.cril.univ-artois.fr/~lecoutre/compets/}}
+}  % VERIFY
+
+% ----- AIJ extension: learning- and differentiation-based constraint solving -----
+@inproceedings{selsam2019neurosat,
+  title     = {Learning a {SAT} Solver from Single-Bit Supervision},
+  author    = {Selsam, Daniel and Lamm, Matthew and B{\"u}nz, Benedikt and Liang, Percy and de Moura, Leonardo and Dill, David L.},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2019}
+}
+
+@inproceedings{selsam2019neurocore,
+  volume    = {11628},
+  pages     = {336--353},
+  title     = {Guiding High-Performance {SAT} Solvers with Unsat-Core Predictions},
+  author    = {Selsam, Daniel and Bj{\o}rner, Nikolaj},
+  booktitle = {Theory and Applications of Satisfiability Testing (SAT)},
+  year      = {2019}
+}
+
+@inproceedings{amizadeh2018learning,
+  title={Learning to solve circuit-sat: An unsupervised differentiable approach},
+  author={Amizadeh, Saeed and Matusevych, Sergiy and Weimer, Markus},
+  booktitle={International conference on learning representations},
+  year={2018}
+}
+
+@inproceedings{wang2019satnet,
+  volume    = {97},
+  pages     = {6545--6554},
+  title     = {{SATNet}: Bridging Deep Learning and Logical Reasoning Using a Differentiable Satisfiability Solver},
+  author    = {Wang, Po-Wei and Donti, Priya L. and Wilder, Bryan and Kolter, J. Zico},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  year      = {2019}
+}
+
+@inproceedings{pogancic2020blackbox,
+  title     = {Differentiation of Blackbox Combinatorial Solvers},
+  author    = {Pogan{\v{c}}i{\'c}, Marin Vlastelica and Paulus, Anselm and Musil, Vit and Martius, Georg and Rolinek, Michal},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2020}
+}
+
+@article{berthet2020learning,
+  title={Learning with differentiable pertubed optimizers},
+  author={Berthet, Quentin and Blondel, Mathieu and Teboul, Olivier and Cuturi, Marco and Vert, Jean-Philippe and Bach, Francis},
+  journal={Advances in neural information processing systems},
+  volume={33},
+  pages={9508--9519},
+  year={2020}
+}
+
+@inproceedings{gasse2019exact,
+  title     = {Exact Combinatorial Optimization with Graph Convolutional Neural Networks},
+  author    = {Gasse, Maxime and Ch{\'e}telat, Didier and Ferroni, Nicola and Charlin, Laurent and Lodi, Andrea},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2019}
+}
+
+@article{cappart2023combinatorial,
+  title   = {Combinatorial Optimization and Reasoning with Graph Neural Networks},
+  author  = {Cappart, Quentin and Ch{\'e}telat, Didier and Khalil, Elias B. and Lodi, Andrea and Morris, Christopher and Veli{\v{c}}kovi{\'c}, Petar},
+  journal = {Journal of Machine Learning Research},
+  volume  = {24},
+  pages   = {1--61},
+  year    = {2023}
+}
+
+@inproceedings{toenshoff2021rungnn,
+  volume  = {3},
+  pages   = {580607},
+  title     = {Graph Neural Networks for Maximum Constraint Satisfaction},
+  author    = {Toenshoff, Jan and Ritzert, Martin and Wolf, Hinrikus and Grohe, Martin},
+  booktitle = {Frontiers in Artificial Intelligence},
+  year      = {2021}
+}
+
+@book{rossi2006handbook,
+  title     = {Handbook of Constraint Programming},
+  editor    = {Rossi, Francesca and van Beek, Peter and Walsh, Toby},
+  series    = {Foundations of Artificial Intelligence},
+  volume    = {2},
+  publisher = {Elsevier},
+  year      = {2006}
+}
+
+@article{audemard2020xcsp3,
+  title={XCSP3 and its ecosystem},
+  author={Audemard, Gilles and Boussemart, Fr{\'{e}}d{\'{e}}ric and Lecoutre, Christophe and Piette, C{\'{e}}dric and Roussel, Olivier},
+  journal={Constraints},
+  volume={25},
+  number={1},
+  pages={47--69},
+  year={2020},
+  publisher={Springer}
+}
+
+@article{yedidia2005constructing,
+  title   = {Constructing Free-Energy Approximations and Generalized Belief Propagation Algorithms},
+  author  = {Yedidia, Jonathan S. and Freeman, William T. and Weiss, Yair},
+  journal = {IEEE Transactions on Information Theory},
+  volume  = {51},
+  number  = {7},
+  pages   = {2282--2312},
+  year    = {2005}
+}
+
+@article{braunstein2005survey,
+  title={Survey propagation: An algorithm for satisfiability},
+  author={Braunstein, Alfredo and M{\'{e}}zard, Marc and Zecchina, Riccardo},
+  journal={Random Structures \& Algorithms},
+  volume  = {27},
+  number  = {2},
+  pages   = {201--226},
+  year    = {2005}
+}
+
+@article{rose1998deterministic,
+  title   = {Deterministic Annealing for Clustering, Compression, Classification, Regression, and Related Optimization Problems},
+  author  = {Rose, Kenneth},
+  journal = {Proceedings of the IEEE},
+  volume  = {86},
+  number  = {11},
+  pages   = {2210--2239},
+  year    = {1998}
+}
+
+@article{dechter1999bucket,
+  title   = {Bucket Elimination: A Unifying Framework for Reasoning},
+  author  = {Dechter, Rina},
+  journal = {Artificial Intelligence},
+  volume  = {113},
+  number  = {1--2},
+  pages   = {41--85},
+  year    = {1999}
+}
+
+@book{dechter2003,
+  title     = {Constraint Processing},
+  author    = {Dechter, Rina},
+  publisher = {Morgan Kaufmann},
+  year      = {2003}
+}
+
+@inproceedings{murphy1999loopy,
+  title     = {Loopy Belief Propagation for Approximate Inference: An Empirical Study},
+  author    = {Murphy, Kevin P. and Weiss, Yair and Jordan, Michael I.},
+  booktitle = {Proceedings of the Fifteenth Conference on Uncertainty in Artificial Intelligence (UAI)},
+  pages     = {467--475},
+  year      = {1999}
+}
+
+@article{wainwright2008graphical,
+  title   = {Graphical Models, Exponential Families, and Variational Inference},
+  author  = {Wainwright, Martin J. and Jordan, Michael I.},
+  journal = {Foundations and Trends in Machine Learning},
+  volume  = {1},
+  number  = {1--2},
+  pages   = {1--305},
+  year    = {2008}
+}
+
+@article{mezard2002analytic,
+  title   = {Analytic and Algorithmic Solution of Random Satisfiability Problems},
+  author  = {M{\'e}zard, Marc and Parisi, Giorgio and Zecchina, Riccardo},
+  journal = {Science},
+  volume  = {297},
+  number  = {5582},
+  pages   = {812--815},
+  year    = {2002}
+}
+
+
+@book{chung1997spectral,
+  author    = {Chung, Fan R. K.},
+  title     = {Spectral Graph Theory},
+  publisher = {American Mathematical Society},
+  year      = {1997}
+}
+
+@article{hinton2002poe,
+  author  = {Hinton, Geoffrey E.},
+  title   = {Training products of experts by minimizing contrastive divergence},
+  journal = {Neural Computation},
+  volume  = {14},
+  number  = {8},
+  pages   = {1771--1800},
+  year    = {2002}
+}
+
+@article{newcombe1998paired,
+  author  = {Newcombe, Robert G.},
+  title   = {Improved confidence intervals for the difference between binomial
+             proportions based on paired data},
+  journal = {Statistics in Medicine},
+  volume  = {17},
+  number  = {22},
+  pages   = {2635--2650},
+  year    = {1998}
+}

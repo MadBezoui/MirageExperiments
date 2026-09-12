@@ -125,7 +125,8 @@ The thirteenth, `numbers.tex`, was produced by
 as archived output; it needs the per-instance feature file, which was not
 preserved. Every macro the manuscript still takes from it that concerns
 coverage is recomputed and asserted independently by `paper_numbers.py`; what
-remains is the declared warm-up time limit, which Appendix L states.
+remains is the declared warm-up time limit, which
+Section 6 of the manuscript states.
 
 `tests/test_theorem_scope.py` is the semantic counterpart to those byte
 comparisons. It pins the $K_2\cup C_3$ counterexample that forces the

@@ -1,0 +1,27 @@
+\begin{table}[htbp]
+\TABLE{Classification of every terminal \textsc{error} record in the main sweep, from the error strings retained in the raw logs.\label{tab:errors}}
+{\scriptsize\setlength{\tabcolsep}{4.5pt}\begin{tabular}{lrrrrrrr}
+\toprule
+class & all & Choco & CP-SAT & M-R$\to$CP-SAT & M-R+reg & M-R & RUN-CSP \\
+\midrule
+\multicolumn{8}{@{}l}{\itshape origin: input data}\\
+\quad I1: empty normalized file (zero bytes) & 240 & 40 & 40 & 40 & 40 & 40 & 40 \\
+\quad I2: truncated or malformed normalized JSON & 38 & 0 & 5 & 9 & 8 & 9 & 7 \\
+\addlinespace[2pt]
+\multicolumn{8}{@{}l}{\itshape origin: adapter}\\
+\quad A1: Java adapter or model construction & 2 & 2 & 0 & 0 & 0 & 0 & 0 \\
+\addlinespace[2pt]
+\multicolumn{8}{@{}l}{\itshape origin: harness / resource}\\
+\quad R1: GPU device or memory failure & 84 & 0 & 0 & 0 & 0 & 0 & 84 \\
+\quad R2: host memory exhaustion & 14 & 2 & 4 & 7 & 1 & 0 & 0 \\
+\quad R3: operating-system or file-handle failure & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
+\addlinespace[2pt]
+\multicolumn{8}{@{}l}{\itshape origin: unclassified}\\
+\quad U1: error recorded without a retained message & 18 & 10 & 3 & 0 & 0 & 0 & 5 \\
+\midrule
+total error runs & 397 & 54 & 53 & 56 & 49 & 49 & 136 \\
+all-seed error entries & & 10 & 9 & 9 & 9 & 9 & 13 \\
+\bottomrule
+\end{tabular}}
+{Heads abbreviate the six configurations: Choco, OR-Tools CP-SAT, the MIRAGE-R$\to$CP-SAT hybrid, MIRAGE-R with regions, the MIRAGE-R core, RUN-CSP. Counts are runs, except the last row, which counts entries where every seed errored. Classes I1 and I2 are properties of the input file: 10 entries failed under every configuration, which is the common floor. R1 is RUN-CSP GPU contention; U1 records runs whose error message was not retained.}
+\end{table}

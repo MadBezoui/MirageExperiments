@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\TABLE{Record integrity across the six experiments, each keyed by experiment, configuration, representation and seed.\label{tab:integrity}}
+{\small\begin{tabular}{lrrrrrr}
+\toprule
+experiment & expected & raw & unique & dup. & missing & conflicting \\
+\midrule
+Main comparison sweep & 22,080 & 22,080 & 22,080 & 0 & 0 & 0 \\
+Schedule ablation & 52,992 & 52,992 & 52,992 & 0 & 0 & 0 \\
+Warm-start grid & 6,240 & 7,800 & 6,240 & 1,560 & 0 & 27 \\
+Peak-memory benchmark & 736 & 736 & 736 & 0 & 0 & 0 \\
+Trajectory sample & 40 & 40 & 40 & 0 & 0 & 0 \\
+Throughput benchmark & 7 & 7 & 7 & 0 & 0 & 0 \\
+\bottomrule
+\end{tabular}}
+{The run key is (experiment, configuration, representation, seed); for the schedule ablation the configuration is $(\text{solver},\tau_0,\beta_{\mathrm{growth}})$ and for the warm-start grid it is (warm-up epochs, hint mode). \emph{dup.} counts keys occurring more than once, \emph{conflicting} those whose records disagree on terminal status. Only the warm-start grid is affected; Section~\ref{sec:integrity} says why.}
+\end{table}

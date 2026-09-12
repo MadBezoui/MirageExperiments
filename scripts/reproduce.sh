@@ -20,8 +20,11 @@ export PYTHONPATH="${PYTHONPATH:-.}"
 
 MODE="${1:-all}"
 
-if [ -f paper/ijoc/paper.tex ]; then PAPERDIR=paper/ijoc
-elif [ -f ../paper/ijoc/paper.tex ]; then PAPERDIR=../paper/ijoc
+# The manuscript directory: in this repository, or beside it in the authors'
+# working tree. It is enough for it to hold the reference tables; only the PDF
+# build additionally needs paper.tex.
+if   [ -d paper/ijoc/tables ];    then PAPERDIR=paper/ijoc
+elif [ -d ../paper/ijoc/tables ]; then PAPERDIR=../paper/ijoc
 else PAPERDIR=""
 fi
 
@@ -29,13 +32,21 @@ if [ -n "$PAPERDIR" ]; then
   export PAPERDIR
   TABLES=$PAPERDIR/tables
   FIGURES=$PAPERDIR/figures
+  mkdir -p "$FIGURES"
+  if [ ! -f "$PAPERDIR/paper.tex" ] && \
+     { [ "$MODE" = "paper" ] || [ "$MODE" = "all" ]; }; then
+    echo "$PAPERDIR/paper.tex not found: tables and figures regenerate and"
+    echo "verify, but the PDF cannot be built here. See README.md."
+    exit 2
+  fi
 else
-  # If manuscript is absent, generate into a local directory
+  # Neither the tables nor the manuscript are present: generate into a local
+  # directory so the code-only results still run, and refuse what needs them.
   TABLES=results/generated/tables
   FIGURES=results/generated/figures
-  if [[ "$MODE" == "verify" || "$MODE" == "paper" || "$MODE" == "all" ]]; then
-    echo "paper/ijoc/paper.tex not found, here or beside this repository."
-    echo "Table regeneration and the PDF build need it; see README.md."
+  if [ "$MODE" = "verify" ] || [ "$MODE" = "paper" ] || [ "$MODE" = "all" ]; then
+    echo "paper/ijoc/tables not found, here or beside this repository."
+    echo "Comparison and the PDF build need it; see README.md."
     exit 2
   fi
   mkdir -p "$TABLES" "$FIGURES"
@@ -60,7 +71,7 @@ run_tests() {
 run_theory() {
   hr "Theorem 1 against the implementation (Table 1, Figure 2, theory macros)"
   "$PY" -m experiments.theory_multifactor --out "$1" --figdir "$FIGURES"
-  hr "exact trajectories of the implemented map (Figure 2)"
+  hr "trajectories of the implemented map (Figure 3)"
   "$PY" -m experiments.theory_portrait --out "$1" --figdir "$FIGURES"
 }
 
@@ -89,7 +100,12 @@ run_audit() {
 
 run_paper() {
   hr "the manuscript"
-  "$PY" scripts/build_submission.py
+  if [ -f "$PAPERDIR/paper.tex" ]; then
+    "$PY" scripts/build_submission.py
+  else
+    echo "  skipped: $PAPERDIR/paper.tex is not part of this artifact, so the"
+    echo "  PDF cannot be built here. The table comparison above is complete."
+  fi
 }
 
 case "$MODE" in
@@ -121,7 +137,15 @@ case "$MODE" in
     # trims that the generators do not reproduce.
     used=$("$PY" - <<'INNEREOF'
 import os, re, pathlib
-src = (pathlib.Path(os.environ["PAPERDIR"]) / "paper.tex").read_text()
+# Which tables to compare. The manuscript names them through \input; when it
+# is absent, as in a clone of the artifact alone, fall back to comparing every
+# table the repository ships, which is the same set for the deposited bundle.
+paperdir = pathlib.Path(os.environ["PAPERDIR"])
+tex = paperdir / "paper.tex"
+if not tex.exists():
+    print(" ".join(sorted(p.name for p in (paperdir / "tables").glob("*.tex"))))
+    raise SystemExit
+src = tex.read_text()
 print(" ".join(sorted({m + ".tex" for m in
       re.findall(r"\\input\{tables/([a-z_]+)", src)})))
 INNEREOF

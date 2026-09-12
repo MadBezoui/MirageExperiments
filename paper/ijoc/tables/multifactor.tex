@@ -1,0 +1,23 @@
+\begin{table}[htbp]
+\TABLE{Numerical verification of Theorem~1 on the solver's own projector and consensus code.\label{tab:multifactor}}
+{\footnotesize\begin{tabular}{lrrcrrrr}
+\toprule
+disequality graph & $|V|$ & $|E|$ & bipartite & $\mu_{\max}(L)$ & $\gamma^\star$ & lin.\ err. & f.p.\ err. \\
+\midrule
+single edge $K_2$ & 2 & 1 & yes & 2.0000 & 0.5000 & 5.9e-14 & 5.9e-16 \\
+path $P_4$ & 4 & 3 & yes & 2.0000 & 0.5000 & 4.3e-14 & 7.4e-16 \\
+star $K_{1,5}$ & 6 & 5 & yes & 2.0000 & 0.5000 & 4.4e-14 & 8.9e-16 \\
+even cycle $C_4$ & 4 & 4 & yes & 2.0000 & 0.5000 & 4.2e-14 & 1.3e-15 \\
+even cycle $C_6$ & 6 & 6 & yes & 2.0000 & 0.5000 & 4.1e-14 & 2.2e-15 \\
+odd cycle $C_3$ & 3 & 3 & no & 1.5000 & 0.6667 & 9.2e-14 & 5.9e-16 \\
+odd cycle $C_5$ & 5 & 5 & no & 1.8090 & 0.5528 & 8.1e-14 & 5.9e-16 \\
+odd cycle $C_7$ & 7 & 7 & no & 1.9010 & 0.5260 & 6.6e-14 & 7.4e-16 \\
+odd cycle $C_9$ & 9 & 9 & no & 1.9397 & 0.5155 & 5.5e-14 & 2.7e-15 \\
+complete $K_4$ & 4 & 6 & no & 1.3333 & 0.7500 & 4.9e-14 & 2.2e-16 \\
+complete $K_5$ & 5 & 10 & no & 1.2500 & 0.8000 & 4.1e-14 & 2.2e-16 \\
+bipartite $K_{3,3}$ & 6 & 9 & yes & 2.0000 & 0.5000 & 4.1e-14 & 7.4e-16 \\
+Petersen & 10 & 15 & no & 1.6667 & 0.6000 & 4.2e-14 & 7.4e-17 \\
+\bottomrule
+\end{tabular}}
+{\emph{lin.\ err.} is the largest relative deviation between $\gamma Lu$ and one implemented frozen epoch, over 200 random states and random $(\tau,\beta)$; \emph{f.p.\ err.} the displacement of a leading eigenvector at $\gamma=\gamma^\star$. Both are at double-precision round-off.}
+\end{table}

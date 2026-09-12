@@ -27,6 +27,7 @@ For each instance and seed the experiment:
 
 Usage:
     PYTHONPATH=. python -m experiments.fixedpoint_diagnostics \
+        --n 30 --seeds 8 \
         --out results/raw/diagnostics --tables paper/ijoc/tables \
         --figdir paper/ijoc/figures
 """
@@ -420,8 +421,11 @@ def main():
     ap.add_argument("--out", default="results/raw/diagnostics")
     ap.add_argument("--tables", default="paper/ijoc/tables")
     ap.add_argument("--figdir", default="paper/ijoc/figures")
-    ap.add_argument("--n", type=int, default=40)
-    ap.add_argument("--seeds", type=int, default=10)
+    ap.add_argument("--n", type=int, default=30)
+    ap.add_argument("--seeds", type=int, default=8)
+    ap.add_argument("--fresh", action="store_true",
+                    help="ignore any deposited records and rerun "
+                         "every configuration and seed")
     ap.add_argument("--eps", type=float, default=1e-12)
     ap.add_argument("--budget", type=float, default=0.0,
                     help="wall-clock seconds before checkpointing and exiting")
@@ -444,14 +448,28 @@ def main():
     # experiment can be driven in bounded time slices.
     jsonl = os.path.join(args.out, "diagnostics.jsonl")
     records, done = [], set()
+    if args.fresh and os.path.exists(jsonl):
+        os.replace(jsonl, jsonl + ".superseded")
+        print(f"--fresh: set aside {jsonl} and rerunning everything")
     if os.path.exists(jsonl):
+        stale = 0
         for line in open(jsonl):
             line = line.strip()
-            if line:
-                r = json.loads(line)
-                records.append(r)
-                done.add((r["config"], r["seed"]))
-        print(f"resuming: {len(records)} runs already complete")
+            if not line:
+                continue
+            r = json.loads(line)
+            # A record is only resumable if it was produced at the same problem
+            # size. Resuming across sizes would silently mix, say, n = 30 seeds
+            # with n = 40 seeds inside one configuration.
+            if r.get("n") != args.n:
+                stale += 1
+                continue
+            records.append(r)
+            done.add((r["config"], r["seed"]))
+        print(f"resuming: {len(records)} runs already complete at n={args.n}")
+        if stale:
+            print(f"  ignoring {stale} record(s) from a different problem size; "
+                  f"pass --fresh to start clean")
 
     t0 = time.time()
     fh_out = open(jsonl, "a", buffering=1)
@@ -548,8 +566,8 @@ def main():
         r" $k\in\{2,3,4\}$. The table isolates the paper's central"
         r" methodological point. The \emph{flat frac.} and \emph{plateau}"
         r" columns are nearly constant across configurations, while the states"
-        r" they describe are completely different: under the archived annealed"
-        r" schedule the terminal state is an \emph{integral} vertex"
+        r" they describe are completely different: under the annealed"
+        r" schedule the terminal state is \emph{near-integral}"
         r" ($\bar H\approx 0$, $g_{\mathrm{mean}}\approx 0$) reached after"
         r" about twenty epochs, whereas under the frozen critical and"
         r" subcritical maps it is the \emph{uniform fractional} point"
